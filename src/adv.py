@@ -44,7 +44,7 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
-directions = ["n", "s", "e", "w"]
+directions = ["n", "s", "e", "w", "quit"]
 
 
 def game_start():
@@ -87,6 +87,10 @@ def game_start():
         path = input(f'{avatar.name}, thy move?\n> ').lower().strip()
         if path.lower() in directions:
             avatar.movement(path)
+        elif path.lower() == 'q':
+            os.system('clear')
+            print(finale + '\n')
+            exit()
 
 
 game_start()
